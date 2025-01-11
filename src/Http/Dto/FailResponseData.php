@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Dto;
+
+use Yiisoft\Arrays\ArrayableInterface;
+use Yiisoft\Arrays\ArrayableTrait;
+
+class FailResponseData implements ArrayableInterface {
+    use ArrayableTrait;
+
+    public bool $success = false;
+    public array|null $payload;
+
+    /**
+     * @param string|null $message
+     * @param int $code
+     * @param array $params
+     */
+    public function __construct(
+        string|null $message,
+        int         $code,
+        array       $params = [],
+    ) {
+        $this->payload = array_merge([
+            'message' => $message,
+            'code' => $code
+        ], $params);
+    }
+}
