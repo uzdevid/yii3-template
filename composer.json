@@ -1,14 +1,13 @@
 {
-    "name": "agro-zamin/agroid-auth",
+    "name": "uzdevid/yii3-template",
     "type": "project",
-    "description": "Auth.AgroID.AgroZamin",
+    "description": "Yii3 API Template",
     "keywords": [
-        "agrobank",
-        "agrozamin",
-        "agroid",
-        "auth"
+        "uzdevid",
+        "yiisoft",
+        "yii3"
     ],
-    "homepage": "https://auth.agroid.uz",
+    "homepage": "https://uzdevid.com",
     "license": "BSD-3-Clause",
     "minimum-stability": "stable",
     "prefer-stable": true,
