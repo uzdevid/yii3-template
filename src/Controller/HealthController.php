@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Http\Dto\NoReformatResponse;
 use Yiisoft\DataResponse\DataResponse;
 use Yiisoft\DataResponse\DataResponseFactoryInterface;
 
@@ -19,6 +20,6 @@ readonly final class HealthController {
      * @return DataResponse
      */
     public function check(): DataResponse {
-        return $this->responseFactory->createResponse([]);
+        return $this->responseFactory->createResponse(new NoReformatResponse([]));
     }
 }

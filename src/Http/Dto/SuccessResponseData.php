@@ -2,10 +2,9 @@
 
 namespace App\Http\Dto;
 
-use Yiisoft\Arrays\ArrayableInterface;
 use Yiisoft\Arrays\ArrayableTrait;
 
-class SuccessResponseData implements ArrayableInterface {
+class SuccessResponseData implements CustomResponseInterface {
     use ArrayableTrait;
 
     public bool $success = true;

@@ -24,9 +24,6 @@ return [
             ->middleware(RequestBodyParser::class)
             ->middleware(FormatDataResponse::class)
             ->middleware(ExceptionMiddleware::class)
-            ->middleware(ResponseBodyMiddleware::class)
-            ->middleware(ResponseHeadersMiddleware::class)
-            ->middleware(ResponseCookiesMiddleware::class)
             ->addGroup(Group::create()->routes(...$config->get('routes')));
 
         return new RouteCollection($collector);
