@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  app:
-    build: .
-    container_name: yii3_api
-    ports:
-      - "8012:80"
