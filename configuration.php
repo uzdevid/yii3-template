@@ -7,7 +7,7 @@ return [
         'params' => 'common/params.php',
         'params-web' => [
             '$params',
-            'web/params.php',
+            'http/params.php',
         ],
         'params-console' => [
             '$params',
@@ -16,7 +16,7 @@ return [
         'di' => 'common/di/*.php',
         'di-web' => [
             '$di',
-            'web/di/*.php',
+            'http/di/*.php',
         ],
         'di-console' => '$di',
         'di-delegates' => [],
@@ -29,7 +29,7 @@ return [
         'events-console' => '$events',
         'events-web' => [
             '$events',
-            'web/events.php',
+            'http/events.php',
         ],
         'bootstrap' => [
             'common/bootstrap.php'
@@ -37,7 +37,7 @@ return [
         'bootstrap-console' => '$bootstrap',
         'bootstrap-web' => '$bootstrap',
         'routes' => [
-            'web/routes/*.php',
+            'http/routes/*.php',
         ],
     ],
     'config-plugin-environments' => [
