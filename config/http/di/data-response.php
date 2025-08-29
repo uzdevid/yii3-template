@@ -1,9 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
-
-use App\Application\Http\Factory\ResponseFactory;
-use App\Application\Http\ResponseFormatter;
+use App\Entrypoint\Http\Factory\ResponseFactory;
+use App\Entrypoint\Http\ResponseFormatter;
 use Yiisoft\DataResponse\DataResponseFactoryInterface;
 use Yiisoft\DataResponse\DataResponseFormatterInterface;
 use Yiisoft\DataResponse\Formatter\HtmlDataResponseFormatter;

@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
-
-use App\Application\Command\HealthCheckCommand;
+use App\Entrypoint\Console\HealthCheckCommand;
 
 return [
     'health-check' => HealthCheckCommand::class,

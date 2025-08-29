@@ -1,10 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
-
-use App\Application\Http\NotFoundHandler;
-use App\Application\Http\Provider\TracerProvider;
-use App\Application\Http\Provider\TracerProviderInterface;
+use App\Entrypoint\Http\NotFoundHandler;
 use Yiisoft\Definitions\DynamicReference;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Injector\Injector;
@@ -21,5 +17,4 @@ return [
             'fallbackHandler' => Reference::to(NotFoundHandler::class),
         ],
     ],
-    TracerProviderInterface::class => TracerProvider::class
 ];

@@ -1,13 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
+namespace App\Entrypoint\Http\Middleware;
 
-namespace App\Application\Http\Middleware;
-
-use App\Application\Http\Dto\FailResponseData;
-use App\Application\Http\Dto\InputValidationFailResponseData;
-use App\Application\Http\Exception\HttpExceptionInterface;
-use App\Exception\ClientException;
+use App\Entrypoint\Http\Exception\HttpExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -34,14 +29,18 @@ final readonly class ExceptionMiddleware implements MiddlewareInterface {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface {
         try {
             $response = $handler->handle($request);
-        } catch (ClientException $exception) {
-            $response = $this->dataResponseFactory->createResponse(new FailResponseData($exception->getMessage(), $exception->getCode()), Status::INTERNAL_SERVER_ERROR);
         } catch (InputValidationException $exception) {
-            $response = $this->dataResponseFactory->createResponse(new InputValidationFailResponseData($exception), Status::UNPROCESSABLE_ENTITY);
+            $errors = $exception->getResult()->getFirstErrorMessagesIndexedByPath();
+
+            $errors = array_map(
+                static fn($attribute, $message) => ['attribute' => $attribute, 'message' => $message],
+                array_keys($errors), $errors
+            );
+            $response = $this->dataResponseFactory->createResponse(['message' => $exception->getMessage(), 'code' => $exception->getCode(), 'errors' => $errors], Status::UNPROCESSABLE_ENTITY);
         } catch (HttpExceptionInterface $exception) {
-            $response = $this->dataResponseFactory->createResponse(new FailResponseData($exception->getMessage(), $exception->getCode()), $exception->getStatusCode());
+            $response = $this->dataResponseFactory->createResponse(['message' => $exception->getMessage(), 'code' => $exception->getCode()], $exception->getStatusCode());
         } catch (Throwable $exception) {
-            $response = $this->dataResponseFactory->createResponse(new FailResponseData($exception->getMessage(), $exception->getCode()), Status::INTERNAL_SERVER_ERROR);
+            $response = $this->dataResponseFactory->createResponse(['message' => $exception->getMessage(), 'code' => $exception->getCode()], Status::INTERNAL_SERVER_ERROR);
         }
 
         return $response;

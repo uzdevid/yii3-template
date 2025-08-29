@@ -1,10 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
+namespace App\Entrypoint\Http;
 
-namespace App\Application\Http;
-
-use App\Application\Http\Dto\FailResponseData;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -29,10 +26,7 @@ final readonly class NotFoundHandler implements RequestHandlerInterface {
      */
     public function handle(ServerRequestInterface $request): ResponseInterface {
         return $this->formatter->format(
-            $this->dataResponseFactory->createResponse(
-                new FailResponseData('Not found.', Status::NOT_FOUND),
-                Status::NOT_FOUND,
-            )
+            $this->dataResponseFactory->createResponse(['message' => 'Not found.'], Status::NOT_FOUND)
         );
     }
 }

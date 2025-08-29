@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
-
-use App\Application\Http\Middleware\ExceptionMiddleware;
+use App\Entrypoint\Http\Middleware\ExceptionMiddleware;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Yii\Middleware\Subfolder;

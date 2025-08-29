@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Input\Http\HydratorAttributeParametersResolver;

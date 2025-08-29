@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
-
-use App\Application\Http\Controller\HealthController;
+use App\Entrypoint\Http\Controller\HealthController;
 use Yiisoft\Router\Route;
 
 return [

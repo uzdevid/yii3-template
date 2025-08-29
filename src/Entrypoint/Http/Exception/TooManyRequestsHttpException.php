@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Application\Http\Exception;
+namespace App\Entrypoint\Http\Exception;
 
 use RuntimeException;
 

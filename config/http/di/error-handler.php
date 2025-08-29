@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 use Yiisoft\ErrorHandler\Renderer\JsonRenderer;
 use Yiisoft\ErrorHandler\ThrowableRendererInterface;

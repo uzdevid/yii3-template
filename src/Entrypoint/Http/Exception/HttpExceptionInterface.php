@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Http\Exception;
+namespace App\Entrypoint\Http\Exception;
 
 interface HttpExceptionInterface {
     /**
