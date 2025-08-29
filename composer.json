@@ -42,8 +42,8 @@
         "yiisoft/log-target-file": "^3.0",
         "yiisoft/middleware-dispatcher": "^5.2",
         "yiisoft/request-body-parser": "^1.1",
-        "yiisoft/router": "^3.0",
-        "yiisoft/router-fastroute": "^3.1",
+        "yiisoft/router": "^4.0",
+        "yiisoft/router-fastroute": "^4.0",
         "yiisoft/security": "^1.0",
         "yiisoft/yii-console": "^2.0",
         "yiisoft/yii-debug": "dev-master",
@@ -59,9 +59,7 @@
         "pestphp/pest-plugin-stressless": "^2.2",
         "rector/rector": "^1.0.0",
         "roave/security-advisories": "dev-latest",
-        "spatie/phpunit-watcher": "^1.23",
-        "yiisoft/yii-debug-api": "dev-master",
-        "yiisoft/yii-debug-viewer": "dev-master"
+        "spatie/phpunit-watcher": "^1.23"
     },
     "autoload": {
         "psr-4": {
